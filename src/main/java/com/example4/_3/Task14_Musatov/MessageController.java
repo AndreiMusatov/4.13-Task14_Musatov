@@ -19,13 +19,13 @@ public class MessageController {
     ));
 
 
-    // ПОЛУЧЕНИЕ
+    // ПОЛУЧЕНИЕ(ВОЗВРАТ)
     @GetMapping("/message")
     public Iterable<Message> getMessages() {
         return messages;
     }
 
-    // ПОЛУЧЕНИЕ ПО ПАРАМЕТРУ(ID)
+    // ПОЛУЧЕНИЕ/ВОЗВРАТ ПО ПАРАМЕТРУ(ID)
     @GetMapping("/message/{id}")
     public Optional<Message> findMessageById(@PathVariable int id) {
         return messages.stream().filter(m -> m.getId() == id).findFirst();
