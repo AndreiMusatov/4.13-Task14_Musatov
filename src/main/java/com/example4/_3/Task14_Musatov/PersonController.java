@@ -32,14 +32,14 @@ public class PersonController {
         return persons.stream().filter(p -> p.getId() == id).findFirst();
     }
 
-    //ДОБАВЛЕНИЕ
+    //ОТПРАВКА(ДОБАВЛЕНИЕ)
     @PostMapping("/person")
     public Person addPerson(@RequestBody Person person) {
         persons.add(person);
         return person;
     }
 
-// ОБНОВЛЕНИЕ ПОЗВОЛЯЕТ явно контролировать HTTP-статус код
+    // ИЗМЕНЕНИЕ ПО (ID)
 
     @PutMapping("/person/{id}")
     public ResponseEntity<Person> updatePerson(@PathVariable int id, @RequestBody Person person) {
