@@ -31,14 +31,14 @@ public class MessageController {
         return messages.stream().filter(m -> m.getId() == id).findFirst();
     }
 
-    //ДОБАВЛЕНИЕ
+    //ОТПРАВКА(ДОБАВЛЕНИЕ)
     @PostMapping("/message")
     public Message addMessage(@RequestBody Message message) {
         messages.add(message);
         return message;
     }
 
-// ОБНОВЛЕНИЕ ПОЗВОЛЯЕТ явно контролировать HTTP-статус код
+    // ИЗМЕНЕНИЕ ПО(ID) 
 
     @PutMapping("/message/{id}")
     public ResponseEntity<Message> updateMessage(@PathVariable int id, @RequestBody Message message) {
