@@ -20,13 +20,13 @@ public class PersonController {
             new Person(4, "Максим", "Яковлевич", "Окопский", LocalDate.of(1978, 6,5))
     ));
 
-    // ПОЛУЧЕНИЕ
+    // ПОЛУЧЕНИЕ(ВОЗВРАТ)
     @GetMapping("/person")
     public Iterable<Person> getPersons() {
         return persons;
     }
 
-    // ПОЛУЧЕНИЕ ПО ПАРАМЕТРУ(ID)
+    // ПОЛУЧЕНИЕ/ВОЗВРАТ ПО ПАРАМЕТРУ(ID)
     @GetMapping("/person/{id}")
     public Optional<Person> findPersonById(@PathVariable int id) {
         return persons.stream().filter(p -> p.getId() == id).findFirst();
